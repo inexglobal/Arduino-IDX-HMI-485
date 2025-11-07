@@ -89,3 +89,11 @@ More info here: https://kripken.github.io/emscripten-site/docs/getting_started/d
 4. `emcmake cmake ..`
 5. `emmake make -j4`
 6. A file called `index.html` will be generated. Run this in your browser.
+
+# Example of IDX485
+## 1.One LED Blink
+## 2.Three LEDs Blink Sequence
+## 3.Read Button and Show an LED state
+## 4. ZX-LED Dim
+## 5. ZX-POTV ADC Read
+## 6. RGB LED on ESP32C5
