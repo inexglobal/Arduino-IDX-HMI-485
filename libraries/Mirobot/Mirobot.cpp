@@ -321,7 +321,7 @@ int UART_Mirobot::getStatus()
 int UART_Mirobot::getResponse(char delimiter, String values[], int maxValues)
 {
   String msg = strMsg;
-  // msg.trim(); // Trim \r\n and spaces
+  msg.trim(); // Trim \r\n and spaces
 
   // Remove "ok" from the end if it exists
   if (msg.endsWith("ok"))

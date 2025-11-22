@@ -5,44 +5,52 @@ ParsedMessage MessageParser::parse(String msg) {
   result.valueCount = 0;
   result.isQuery = false;
 
-  msg.trim();
-
-  int atPos = msg.indexOf('@');
-  int oPos = msg.indexOf('o', atPos + 1);
-  int eqPos = msg.indexOf('=');
-  int qPos = msg.indexOf('?');
-
-  if (atPos == -1 || oPos == -1) {
-    Serial.println("❌ Invalid message format!");
-    return result;
+  // ---------------------
+  // 1) แยก header (@xx)
+  // ---------------------
+  if (msg[0] == '@') {
+    result.header = msg.substring(0, 3); 
+    msg = msg.substring(3); 
   }
 
-  if (eqPos != -1) {
-    result.header = msg.substring(atPos, oPos);
-    result.command = msg.substring(oPos, eqPos);
-  } else if (qPos != -1) {
-    result.header = msg.substring(atPos, oPos);
-    result.command = msg.substring(oPos, qPos);
+  // ---------------------
+  // 2) ตัด checksum ถ้ามี ( *XX )
+  // ---------------------
+  int starIndex = msg.indexOf('*');
+  if (starIndex != -1) {
+    msg = msg.substring(0, starIndex);
+  }
+
+  // ---------------------
+  // 3) เช็ค Query ?
+  // ---------------------
+  if (msg.endsWith("?")) {
     result.isQuery = true;
-    return result;
+    msg.remove(msg.length() - 1);
+  }
+
+  // ---------------------
+  // 4) แยกค่า =value,...
+  // ---------------------
+  int equalIndex = msg.indexOf('=');
+  if (equalIndex != -1) {
+    result.command = msg.substring(0, equalIndex);
+
+    String valuesStr = msg.substring(equalIndex + 1);
+    int start = 0;
+
+    while (true) {
+      int commaIndex = valuesStr.indexOf(',', start);
+      if (commaIndex == -1) {
+        result.values[result.valueCount++] = valuesStr.substring(start);
+        break;
+      }
+      result.values[result.valueCount++] = valuesStr.substring(start, commaIndex);
+      start = commaIndex + 1;
+    }
+
   } else {
-    Serial.println("❌ Invalid message (no '=' or '?')");
-    return result;
-  }
-
-  // Parsing ค่า (value)
-  String valueStr = msg.substring(eqPos + 1);
-  int start = 0;
-  int end = valueStr.indexOf(',');
-
-  while (end != -1 && result.valueCount < 10) {
-    result.values[result.valueCount++] = valueStr.substring(start, end);
-    start = end + 1;
-    end = valueStr.indexOf(',', start);
-  }
-
-  if (result.valueCount < 10 && start < valueStr.length()) {
-    result.values[result.valueCount++] = valueStr.substring(start);
+    result.command = msg;
   }
 
   return result;
