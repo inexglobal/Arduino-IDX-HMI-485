@@ -30,7 +30,7 @@ void setup() {
   lvgl_port_init(board->getLCD(), board->getTouch());
   Serial.println("Creating UI");
   lvgl_port_lock(-1);
-  
+
   ui_init();
   /* Release the mutex */
   lvgl_port_unlock();
@@ -43,13 +43,29 @@ void setup() {
   expander->enableOC_PushPull();
   //Set the IO0-7 pin to input mode
   expander->enableAllIO_Input();
-
 }
-// Buffer สำหรับเก็บข้อความจาก Serial
 unsigned long t = 0;
+int32_t _count = 0;
+int32_t _flag_reset = 0;
+int32_t _flag_mode = 0;
 void loop() {
+  _flag_reset = get_var_flag_reset();
+  _flag_mode = get_var_flag_mode();
   if (millis() - t >= 100) {  // เวลาครบรอบหน่วยเป็นมิลลิวินาที
     t = millis();
-    ui_tick(); //update UI
+    ui_tick();  //update UI
+    if (_flag_mode == 0) {
+      _count++;
+    } else {
+      _count--;
+    }
   }
+  if (_flag_reset == 1) {
+    _count = 0;
+    set_var_flag_reset(0);
+  }
+  set_var_count(_count);
 }
+
+
+
