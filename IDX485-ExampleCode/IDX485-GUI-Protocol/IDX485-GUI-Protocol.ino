@@ -25,6 +25,4 @@ void loop() {
   _flag_reset = values[2].toInt();
   digitalWrite(8,(_flag_mode ? 0:1 ));
   digitalWrite(9,(_flag_reset ? 0:1 ));
-  
-
 }
