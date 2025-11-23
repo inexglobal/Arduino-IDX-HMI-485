@@ -417,6 +417,12 @@
               "timeline": [],
               "eventHandlers": [
                 {
+                  "objID": "037a3608-bc43-4a2f-9ce0-acd3fcaf9019",
+                  "eventName": "RELEASED",
+                  "handlerType": "flow",
+                  "userData": 0
+                },
+                {
                   "objID": "ba54bbdd-a591-4018-9ef6-1a806a408833",
                   "eventName": "PRESSED",
                   "handlerType": "flow",
@@ -650,8 +656,8 @@
         {
           "objID": "49342b87-aef5-4323-ecfe-3716539fa72b",
           "type": "SetVariableActionComponent",
-          "left": 485,
-          "top": 351,
+          "left": 524,
+          "top": 373,
           "width": 134,
           "height": 56,
           "customInputs": [],
@@ -663,6 +669,23 @@
               "value": "1"
             }
           ]
+        },
+        {
+          "objID": "1fbbcda6-0060-4ea5-aa4e-8e275dd6be20",
+          "type": "SetVariableActionComponent",
+          "left": 536,
+          "top": 292,
+          "width": 134,
+          "height": 56,
+          "customInputs": [],
+          "customOutputs": [],
+          "entries": [
+            {
+              "objID": "57597cf6-e693-45c3-bf35-2cf56acb42e3",
+              "variable": "flag_reset",
+              "value": "0"
+            }
+          ]
         }
       ],
       "connectionLines": [
@@ -671,6 +694,13 @@
           "source": "5c6a1ffa-c20d-46e7-9097-9b641494b0d3",
           "output": "PRESSED",
           "target": "49342b87-aef5-4323-ecfe-3716539fa72b",
+          "input": "@seqin"
+        },
+        {
+          "objID": "37f435bd-60f1-49e7-9f5d-6ff3a2dc4669",
+          "source": "5c6a1ffa-c20d-46e7-9097-9b641494b0d3",
+          "output": "RELEASED",
+          "target": "1fbbcda6-0060-4ea5-aa4e-8e275dd6be20",
           "input": "@seqin"
         }
       ],

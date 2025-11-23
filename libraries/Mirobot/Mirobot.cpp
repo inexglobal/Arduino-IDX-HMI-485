@@ -3,6 +3,8 @@
 class HardwareSerial;
 HardwareSerial *serial;
 
+
+
 UART_Mirobot::UART_Mirobot()
 {
 }
@@ -232,9 +234,9 @@ void UART_Mirobot::sendMsg(String gcode, bool check)
     while (strMsg.indexOf("ok") < 0 && strMsg.indexOf("State") < 0 && check && strMsg.length() != 2)
     {
       // If there is data in the serial port, read all of it
-      // if(serial->available()) strMsg += serial->readString();
-      if (serial->available())
-        strMsg += serial->readStringUntil('/r/n'); // Note: This might be a typo for '\r' or '\n'
+       if(serial->available()) strMsg += serial->readString();
+      //if (serial->available())
+      //  strMsg += serial->readStringUntil('/r/n'); // Note: This might be a typo for '\r' or '\n'
       // If waiting for the end character times out, break out
       if ((millis() - rtime) >= (mirobotCmdTimeout))
       {
@@ -255,9 +257,11 @@ void UART_Mirobot::sendMsg(String gcode, bool check)
     while (Serial2.read() >= 0)
     {
     };
+    
+	//
     Serial2.println(rs485Cmd);
-    Serial2.flush();
-    delay(100);
+	//Serial2.flush();
+    //delay(10);
     if (serialMonitoringMode == 1)
     {
       Serial.print("RS485 message: ");
@@ -268,11 +272,13 @@ void UART_Mirobot::sendMsg(String gcode, bool check)
     while (strMsg.indexOf("ok") < 0 && strMsg.indexOf("State") < 0 && check && strMsg.length() != 2)
     {
       // If there is data in the serial port, read all of it
-      // if(Serial2.available()) strMsg = Serial2.readString();
-      // if(Serial2.available()) strMsg = Serial2.readStringUntil('/r/n');
+       if(Serial2.available()) strMsg = Serial2.readString();
+       //if(Serial2.available()) strMsg = Serial2.readStringUntil('/r/n');
+	  /*
       while (Serial2.available())
       {
         char c = Serial2.read();
+		//Serial2.flush();
         // if (c == '\n') {
         // Serial.println(serialBuffer);
         // }else if (c != '\r') {
@@ -281,6 +287,7 @@ void UART_Mirobot::sendMsg(String gcode, bool check)
           strMsg += c; // Store the character in the buffer
         }
       }
+	  */
       // If waiting for the end character times out, break out
       if ((millis() - rtime) >= (mirobotCmdTimeout))
       {

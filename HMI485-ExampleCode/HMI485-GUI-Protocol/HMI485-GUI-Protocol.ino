@@ -78,33 +78,20 @@ void loop() {
     strMsg = RS485.readString();
     RS485.flush();
     ParsedMessage p1 = parser.parse(strMsg);
-    if(p1.header=="@99"){
-      if(p1.command == "o131"){
-        if(p1.valueCount>0){
-          _flag_mode = p1.values[0].toInt();
-          _count = p1.values[1].toInt();
-          _flag_reset = p1.values[2].toInt();
-
-          set_var_flag_reset(_flag_reset);
+    if (p1.header == "@99") {
+      if (p1.command == "o131") {
+        if (p1.valueCount > 0) {
+          _count = p1.values[0].toInt();
           set_var_count(_count);
-          set_var_flag_mode(_flag_mode);
         }
+        String msg = "";
+        msg.concat(_flag_mode);
+        msg.concat(",");
+        msg.concat(_count);
+        msg.concat(",");
+        msg.concat(_flag_reset);
+        RS485.println(msg + "ok");
       }
-      String msg = "";
-      msg.concat(_flag_mode);
-      msg.concat(","); 
-      msg.concat(_count);
-      msg.concat(",");
-      msg.concat(_flag_reset);
-      RS485.println(msg+"ok");
     }
   }
-
-  
-
-
-  
 }
-
-
-
