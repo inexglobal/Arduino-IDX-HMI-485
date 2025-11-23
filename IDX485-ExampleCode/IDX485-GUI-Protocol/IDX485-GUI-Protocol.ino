@@ -15,8 +15,6 @@ void loop() {
   String msg = "";
   msg.concat(_count++);
   HMI485.sendMsg("o131=" + msg, ON);
-  //delay(250);
- // return;
   String values[3];
   int count = HMI485.getResponse(',', values, 3);
   for (int i = 0; i < count; i++) {
