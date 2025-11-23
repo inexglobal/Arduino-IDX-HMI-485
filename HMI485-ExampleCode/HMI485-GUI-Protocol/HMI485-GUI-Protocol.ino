@@ -30,11 +30,6 @@ void setup() {
   Serial.begin(38400);
   Serial.println("Initializing board");
 
-  pinMode(RS485_RX_PIN, INPUT_PULLUP);
-  RS485.begin(115200, SERIAL_8N1, RS485_RX_PIN, RS485_TX_PIN);
-  while (!RS485) {
-    delay(10);  // Wait for initialization to succeed
-  }
 
   Board *board = new Board();
   board->init();
@@ -60,6 +55,12 @@ void setup() {
   expander->enableOC_PushPull();
   //Set the IO0-7 pin to input mode
   expander->enableAllIO_Input();
+
+  pinMode(RS485_RX_PIN, INPUT_PULLUP);
+  RS485.begin(115200, SERIAL_8N1, RS485_RX_PIN, RS485_TX_PIN);
+  while (!RS485) {
+    delay(10);  // Wait for initialization to succeed
+  }
 }
 unsigned long t = 0;
 int32_t _count = 0;
@@ -75,8 +76,7 @@ void loop() {
     ui_tick();  //update UI
   }
   if (RS485.available()) {
-    strMsg = RS485.readString();
-    RS485.flush();
+    strMsg = RS485.readStringUntil('\r\n');
     ParsedMessage p1 = parser.parse(strMsg);
     if (p1.header == "@99") {
       if (p1.command == "o131") {
@@ -91,6 +91,7 @@ void loop() {
         msg.concat(",");
         msg.concat(_flag_reset);
         RS485.println(msg + "ok");
+        RS485.flush();
       }
     }
   }

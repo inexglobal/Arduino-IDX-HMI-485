@@ -302,7 +302,7 @@ void UART_Mirobot::sendMsg(String gcode, bool check)
     
 	//
     Serial2.println(rs485Cmd);
-	//Serial2.flush();
+	Serial2.flush();
     //delay(10);
     if (serialMonitoringMode == 1)
     {
@@ -314,8 +314,8 @@ void UART_Mirobot::sendMsg(String gcode, bool check)
     while (strMsg.indexOf("ok") < 0 && strMsg.indexOf("State") < 0 && check && strMsg.length() != 2)
     {
       // If there is data in the serial port, read all of it
-       if(Serial2.available()) strMsg = Serial2.readString();
-       //if(Serial2.available()) strMsg = Serial2.readStringUntil('/r/n');
+       //if(Serial2.available()) strMsg = Serial2.readString();
+       if(Serial2.available()) strMsg = Serial2.readStringUntil('/r/n');
 	  /*
       while (Serial2.available())
       {
