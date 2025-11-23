@@ -16,17 +16,17 @@ void UART_Mirobot::serialInit(int serialPort)
   switch (mirobotSerialPort)
   {
   case 0:
-    serial = &Serial;
+    serial = &Serial1;
     break;
   case 1:
-    serial = &Serial2;
+    serial = &Serial1;
     break;
   case 2:
     serial = &Serial2;
     break; // Note: case 2 also maps to Serial2
            // case 3: serial = &Serial3; break;
   default:
-    serial = &Serial;
+    serial = &Serial1;
     break;
   }
   serial->begin(38400);
@@ -212,7 +212,7 @@ void UART_Mirobot::setCmdTimeout(long cmdTimeout)
 {
   mirobotCmdTimeout = cmdTimeout;
 }
-
+/*
 void UART_Mirobot::sendMsg(String gcode, bool check)
 {
   if (commMode == 0)
@@ -274,6 +274,48 @@ void UART_Mirobot::sendMsg(String gcode, bool check)
       // If there is data in the serial port, read all of it
        if(Serial2.available()) strMsg = Serial2.readString();
        //if(Serial2.available()) strMsg = Serial2.readStringUntil('/r/n');
+	 
+      while
+      // If waiting for the end character times out, break out
+      if ((millis() - rtime) >= (mirobotCmdTimeout))
+      {
+        strMsg += "---Timeout---";
+        break;
+      }
+      // delay(100);
+    }
+    if (serialMonitoringMode == 1)
+    {
+      Serial.print("Received: ");
+      Serial.println(strMsg);
+    }
+  }
+}
+*/
+void UART_Mirobot::sendMsg(String gcode, bool check)
+{
+  
+    String rs485Cmd = "@" + address + gcode;
+    while (Serial2.read() >= 0)
+    {
+    };
+    
+	//
+    Serial2.println(rs485Cmd);
+	//Serial2.flush();
+    //delay(10);
+    if (serialMonitoringMode == 1)
+    {
+      Serial.print("RS485 message: ");
+      Serial.println(rs485Cmd);
+    }
+    unsigned long rtime = millis();
+    strMsg = "";
+    while (strMsg.indexOf("ok") < 0 && strMsg.indexOf("State") < 0 && check && strMsg.length() != 2)
+    {
+      // If there is data in the serial port, read all of it
+       if(Serial2.available()) strMsg = Serial2.readString();
+       //if(Serial2.available()) strMsg = Serial2.readStringUntil('/r/n');
 	  /*
       while (Serial2.available())
       {
@@ -302,8 +344,6 @@ void UART_Mirobot::sendMsg(String gcode, bool check)
       Serial.println(strMsg);
     }
   }
-}
-
 int UART_Mirobot::getStatus()
 {
   sendMsg("O103");
