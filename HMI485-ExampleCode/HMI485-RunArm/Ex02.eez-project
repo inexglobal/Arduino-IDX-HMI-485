@@ -91,7 +91,7 @@
         {
           "objID": "4c1b2701-3df5-4baf-ed10-20cc47a23369",
           "fileName": "vars.c",
-          "template": "#include <stdio.h>\n#include \"vars.h\"\n#include <string.h>\n\nbool sleep_mode = 1;\n\nbool get_var_sleep_mode() {\n    return sleep_mode;\n}\n\nvoid set_var_sleep_mode(bool value) {\n    sleep_mode = value;\n}\n\n//-------------------------------------------------\nbool do1;\n\nbool get_var_do1() {\n    return do1;\n}\n\nvoid set_var_do1(bool value) {\n    do1 = value;\n}\n//--------------------------------------------------\nbool do0;\n\nbool get_var_do0() {\n    return do0;\n}\n\nvoid set_var_do0(bool value) {\n    do0 = value;\n}\n//-------------------------------------------------\nbool di1;\n\nbool get_var_di1() {\n    return di1;\n}\n\nvoid set_var_di1(bool value) {\n    di1 = value;\n}\n//-----------------------------------------\nbool di0;\n\nbool get_var_di0() {\n    return di0;\n}\n\nvoid set_var_di0(bool value) {\n    di0 = value;\n}\n//--------------------------------------------\nbool st_start;\n\nbool get_var_st_start() {\n    return st_start;\n}\n\nvoid set_var_st_start(bool value) {\n    st_start = value;\n}\n//----------------------------------------------\nbool st_home;\n\nbool get_var_st_home() {\n    return st_home;\n}\n\nvoid set_var_st_home(bool value) {\n    st_home = value;\n}\n//------------------------------------------------\n\n\n\n"
+          "template": "#include <stdio.h>\n#include \"vars.h\"\n#include <string.h>\n\nbool sleep_mode = 1;\n\nbool get_var_sleep_mode() {\n    return sleep_mode;\n}\n\nvoid set_var_sleep_mode(bool value) {\n    sleep_mode = value;\n}\n\n//-------------------------------------------------\nbool do1;\n\nbool get_var_do1() {\n    return do1;\n}\n\nvoid set_var_do1(bool value) {\n    do1 = value;\n}\n//--------------------------------------------------\nbool do0;\n\nbool get_var_do0() {\n    return do0;\n}\n\nvoid set_var_do0(bool value) {\n    do0 = value;\n}\n//-------------------------------------------------\nbool di1;\n\nbool get_var_di1() {\n    return di1;\n}\n\nvoid set_var_di1(bool value) {\n    di1 = value;\n}\n//-----------------------------------------\nbool di0;\n\nbool get_var_di0() {\n    return di0;\n}\n\nvoid set_var_di0(bool value) {\n    di0 = value;\n}\n//--------------------------------------------\nbool st_start;\n\nbool get_var_st_start() {\n    return st_start;\n}\n\nvoid set_var_st_start(bool value) {\n    st_start = value;\n}\n//----------------------------------------------\nbool st_home;\n\nbool get_var_st_home() {\n    return st_home;\n}\n\nvoid set_var_st_home(bool value) {\n    st_home = value;\n}\n//------------------------------------------------\nbool st_londing;\n\nbool get_var_st_londing() {\n    return st_londing;\n}\n\nvoid set_var_st_londing(bool value) {\n    st_londing = value;\n}\n\n"
         },
         {
           "objID": "c61c2898-b035-4d00-c5a2-fa4a2224dd78",
@@ -160,6 +160,14 @@
         "name": "st_start",
         "type": "boolean",
         "defaultValue": "false",
+        "persistent": false,
+        "native": true
+      },
+      {
+        "objID": "9b4fb9a4-7629-4e42-a069-4d96759522e5",
+        "name": "st_londing",
+        "type": "boolean",
+        "defaultValue": "1",
         "persistent": false,
         "native": true
       }
@@ -1301,9 +1309,9 @@
             {
               "objID": "5a46de21-c9f4-47da-c146-23c42bcd8f13",
               "type": "LVGLLabelWidget",
-              "left": 466,
+              "left": 461,
               "top": 213,
-              "width": 67,
+              "width": 76,
               "height": 35,
               "customInputs": [],
               "customOutputs": [],
@@ -1342,7 +1350,7 @@
               },
               "group": "",
               "groupIndex": 0,
-              "text": "Run",
+              "text": "Run ",
               "textType": "literal",
               "longMode": "WRAP",
               "recolor": false
@@ -1388,30 +1396,28 @@
               "groupIndex": 0
             },
             {
-              "objID": "aaeced30-9700-4f17-9dc2-af75be9de208",
-              "type": "LVGLSpinnerWidget",
-              "left": 275,
-              "top": 188,
-              "width": 191,
-              "height": 178,
+              "objID": "14cdcc33-b327-498f-f14d-4457173e58bd",
+              "type": "LVGLLabelWidget",
+              "left": 462,
+              "top": 262,
+              "width": 150,
+              "height": 24,
               "customInputs": [],
               "customOutputs": [],
               "style": {
-                "objID": "54577166-4456-496a-846b-e0799af4642a",
+                "objID": "446e302c-5166-4839-c481-80538fb4d608",
                 "useStyle": "default",
                 "conditionalStyles": [],
                 "childStyles": []
               },
               "timeline": [],
               "eventHandlers": [],
-              "identifier": "londing",
               "leftUnit": "px",
               "topUnit": "px",
-              "widthUnit": "px",
-              "heightUnit": "px",
+              "widthUnit": "content",
+              "heightUnit": "content",
               "children": [],
-              "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
-              "hiddenFlag": true,
+              "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
               "hiddenFlagType": "literal",
               "clickableFlagType": "literal",
               "flagScrollbarMode": "",
@@ -1419,14 +1425,24 @@
               "scrollSnapX": "",
               "scrollSnapY": "",
               "checkedStateType": "literal",
-              "disabledState": false,
               "disabledStateType": "literal",
               "states": "",
               "localStyles": {
-                "objID": "7bbab387-dc32-4418-ba17-5f9e5a6ab69b"
+                "objID": "7b456d1a-57a5-442c-b487-4862e5bf14d1",
+                "definition": {
+                  "MAIN": {
+                    "DEFAULT": {
+                      "text_font": "MONTSERRAT_22"
+                    }
+                  }
+                }
               },
               "group": "",
-              "groupIndex": 0
+              "groupIndex": 0,
+              "text": "test_p1.gcode",
+              "textType": "literal",
+              "longMode": "WRAP",
+              "recolor": false
             }
           ],
           "widgetFlags": "CLICKABLE|PRESS_LOCK|CLICK_FOCUSABLE|GESTURE_BUBBLE|SNAPPABLE|SCROLLABLE|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER",
@@ -1487,14 +1503,14 @@
         {
           "objID": "480f7c42-5283-438c-9bb9-3031647cf090",
           "type": "CompareActionComponent",
-          "left": 500,
-          "top": 538,
+          "left": 528,
+          "top": 552,
           "width": 124,
           "height": 70,
           "customInputs": [],
           "customOutputs": [],
           "A": "st_mode",
-          "B": "1",
+          "B": "0",
           "operator": "="
         },
         {
@@ -1549,53 +1565,28 @@
           ]
         },
         {
-          "objID": "5b40e520-721c-4194-cdb9-ed4bca3ae82c",
+          "objID": "72bee1e6-155a-4102-89b4-d8e770874140",
           "type": "LVGLActionComponent",
-          "left": 842,
-          "top": 465,
-          "width": 206,
+          "left": 734,
+          "top": 425,
+          "width": 286,
           "height": 53,
           "customInputs": [],
           "customOutputs": [],
           "actions": [
             {
-              "objID": "682e93d1-6307-4bae-e242-8d747c4444d6",
-              "action": "objSetFlagHidden",
-              "object": "londing",
-              "objectType": "literal",
-              "hidden": false,
-              "hiddenType": "literal"
-            }
-          ]
-        },
-        {
-          "objID": "df3abfe6-b64f-45ef-dc9e-0006d1ebbc0c",
-          "type": "DelayActionComponent",
-          "left": 1087,
-          "top": 465,
-          "width": 87,
-          "height": 53,
-          "customInputs": [],
-          "customOutputs": [],
-          "milliseconds": "1000"
-        },
-        {
-          "objID": "c18ecf93-7ea2-4664-f8b9-0e09c9bc4135",
-          "type": "LVGLActionComponent",
-          "left": 1208,
-          "top": 465,
-          "width": 200,
-          "height": 53,
-          "customInputs": [],
-          "customOutputs": [],
-          "actions": [
-            {
-              "objID": "3ff95db3-2e6c-4a6b-e49c-0fcd9b6f5e47",
-              "action": "objSetFlagHidden",
-              "object": "londing",
-              "objectType": "literal",
-              "hidden": true,
-              "hiddenType": "literal"
+              "objID": "567974b4-837b-4d4c-8257-77ad0605d057",
+              "action": "changeScreen",
+              "screen": "Monitor",
+              "screenType": "literal",
+              "fadeMode": "NONE",
+              "fadeModeType": "literal",
+              "speed": 200,
+              "speedType": "literal",
+              "delay": 0,
+              "delayType": "literal",
+              "useStack": true,
+              "useStackType": "literal"
             }
           ]
         }
@@ -1606,13 +1597,6 @@
           "source": "5ec5a978-9cb0-454e-bc5a-b832091df804",
           "output": "CLICKED",
           "target": "059dbc5d-a24e-4949-8510-d3ffcd725623",
-          "input": "@seqin"
-        },
-        {
-          "objID": "2f81562e-5ce6-4f51-8543-21184663c98a",
-          "source": "fe8a5089-4cd3-4e56-df37-c7f63d90f465",
-          "output": "RELEASED",
-          "target": "480f7c42-5283-438c-9bb9-3031647cf090",
           "input": "@seqin"
         },
         {
@@ -1644,24 +1628,17 @@
           "input": "@seqin"
         },
         {
-          "objID": "e32583f9-90a6-4c65-f9f3-3ab9b9aedcf8",
+          "objID": "e627e78b-0021-43ce-fe1f-0b93b1a3d9d4",
+          "source": "fe8a5089-4cd3-4e56-df37-c7f63d90f465",
+          "output": "RELEASED",
+          "target": "480f7c42-5283-438c-9bb9-3031647cf090",
+          "input": "@seqin"
+        },
+        {
+          "objID": "7cc5a999-7ae6-400f-c89a-e82b92cb37bb",
           "source": "480f7c42-5283-438c-9bb9-3031647cf090",
           "output": "@seqout",
-          "target": "5b40e520-721c-4194-cdb9-ed4bca3ae82c",
-          "input": "@seqin"
-        },
-        {
-          "objID": "9c0894e4-03dc-40e8-8823-c3911d8157c7",
-          "source": "5b40e520-721c-4194-cdb9-ed4bca3ae82c",
-          "output": "@seqout",
-          "target": "df3abfe6-b64f-45ef-dc9e-0006d1ebbc0c",
-          "input": "@seqin"
-        },
-        {
-          "objID": "cac9a40d-173d-4599-a8d3-c3813639acb9",
-          "source": "df3abfe6-b64f-45ef-dc9e-0006d1ebbc0c",
-          "output": "@seqout",
-          "target": "c18ecf93-7ea2-4664-f8b9-0e09c9bc4135",
+          "target": "72bee1e6-155a-4102-89b4-d8e770874140",
           "input": "@seqin"
         }
       ],

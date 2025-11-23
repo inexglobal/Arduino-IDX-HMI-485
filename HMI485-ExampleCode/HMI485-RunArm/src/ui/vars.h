@@ -32,6 +32,8 @@ extern bool get_var_st_home();
 extern void set_var_st_home(bool value);
 extern bool get_var_st_start();
 extern void set_var_st_start(bool value);
+extern bool get_var_st_londing();
+extern void set_var_st_londing(bool value);
 
 
 #ifdef __cplusplus

@@ -1,9 +1,9 @@
 {
   "navigation": {
     "selectedUserPageObject": "[Ex02.eez-project]:/userPages/2",
-    "selectedGlobalVariableObject": "[Ex02.eez-project]:/variables/globalVariables/4",
+    "selectedGlobalVariableObject": "[Ex02.eez-project]:/variables/globalVariables/6",
     "subnavigationSelectedItems": {
-      "variables-tab/sub-navigation/selected-item": "Actions"
+      "variables-tab/sub-navigation/selected-item": "Global"
     }
   },
   "layoutModel": {
@@ -465,10 +465,21 @@
               "type": "tabset",
               "id": "RUNTIME-EDITORS",
               "weight": 1,
-              "selected": -1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
-              "children": [],
+              "children": [
+                {
+                  "type": "tab",
+                  "id": "#13ce1c05-7457-4bd0-b634-c98db646101c",
+                  "name": "OnScreen",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Ex02.eez-project]:/userPages/0",
+                    "permanent": false
+                  },
+                  "icon": "svg:page"
+                }
+              ],
               "active": true
             },
             {
@@ -1242,7 +1253,7 @@
           "x": -400,
           "y": -240
         },
-        "scale": 1
+        "scale": 0.67
       },
       "timeline": {
         "isEditorActive": false,
@@ -1262,10 +1273,10 @@
       },
       "transform": {
         "translate": {
-          "x": -330.7974090909096,
-          "y": -369.52134780442907
+          "x": -432.3979712311585,
+          "y": -159.19314426521385
         },
-        "scale": 0.67
+        "scale": 0.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1295,6 +1306,6 @@
   ],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
-  "flowZoom": 0.67,
+  "flowZoom": 0.5,
   "implementationLanguage": "C"
 }

@@ -1,8 +1,5 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[..\\HMI485-ExampleCode\\HMI485-Template\\Template.eez-project]:/userPages/1",
-    "selectedGlobalVariableObject": "[..\\HMI485-ExampleCode\\HMI485-Template\\Template.eez-project]:/variables/globalVariables/-1",
-    "selectedBitmapObject": "[..\\HMI485-ExampleCode\\HMI485-Template\\Template.eez-project]:/bitmaps/0",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -198,34 +195,10 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 55.19367991845056,
-              "selected": 1,
+              "selected": -1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
-              "children": [
-                {
-                  "type": "tab",
-                  "id": "#0f03be2f-75d0-44e9-b0ed-d4f0e7c3e22a",
-                  "name": "Settings",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[..\\HMI485-ExampleCode\\HMI485-Template\\Template.eez-project]:/settings",
-                    "subObjectPath": "[..\\HMI485-ExampleCode\\HMI485-Template\\Template.eez-project]:/settings",
-                    "permanent": false
-                  },
-                  "icon": "material:settings"
-                },
-                {
-                  "type": "tab",
-                  "id": "#2c981d38-6220-49f8-b16d-51bbc15cecba",
-                  "name": "Main",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[..\\HMI485-ExampleCode\\HMI485-Template\\Template.eez-project]:/userPages/1",
-                    "permanent": false
-                  },
-                  "icon": "svg:page"
-                }
-              ],
+              "children": [],
               "active": true
             },
             {

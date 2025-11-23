@@ -73,6 +73,13 @@ void set_var_st_home(bool value) {
     st_home = value;
 }
 //------------------------------------------------
+bool st_londing;
 
+bool get_var_st_londing() {
+    return st_londing;
+}
 
+void set_var_st_londing(bool value) {
+    st_londing = value;
+}
 

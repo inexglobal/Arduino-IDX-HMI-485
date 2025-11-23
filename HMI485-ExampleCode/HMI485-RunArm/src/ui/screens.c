@@ -258,7 +258,7 @@ void create_screen_controll() {
                 }
                 {
                     lv_obj_t *obj = lv_label_create(parent_obj);
-                    lv_obj_set_pos(obj, 270, 0);
+                    lv_obj_set_pos(obj, 269, 0);
                     lv_obj_set_size(obj, 176, 108);
                     add_style_active_tab(obj);
                     lv_obj_set_style_pad_top(obj, 35, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -308,10 +308,10 @@ void create_screen_controll() {
         }
         {
             lv_obj_t *obj = lv_label_create(parent_obj);
-            lv_obj_set_pos(obj, 466, 213);
+            lv_obj_set_pos(obj, 461, 213);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_obj_set_style_text_font(obj, &lv_font_montserrat_32, LV_PART_MAIN | LV_STATE_DEFAULT);
-            lv_label_set_text(obj, "Run");
+            lv_label_set_text(obj, "Run ");
         }
         {
             lv_obj_t *obj = lv_switch_create(parent_obj);
@@ -321,12 +321,11 @@ void create_screen_controll() {
             lv_obj_add_event_cb(obj, event_handler_cb_controll_obj3, LV_EVENT_ALL, flowState);
         }
         {
-            // londing
-            lv_obj_t *obj = lv_spinner_create(parent_obj, 1000, 60);
-            objects.londing = obj;
-            lv_obj_set_pos(obj, 275, 188);
-            lv_obj_set_size(obj, 191, 178);
-            lv_obj_add_flag(obj, LV_OBJ_FLAG_HIDDEN);
+            lv_obj_t *obj = lv_label_create(parent_obj);
+            lv_obj_set_pos(obj, 462, 262);
+            lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+            lv_obj_set_style_text_font(obj, &lv_font_montserrat_22, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_label_set_text(obj, "test_p1.gcode");
         }
     }
     
@@ -353,7 +352,7 @@ extern void add_style(lv_obj_t *obj, int32_t styleIndex);
 extern void remove_style(lv_obj_t *obj, int32_t styleIndex);
 
 static const char *screen_names[] = { "OnScreen", "Monitor", "Controll" };
-static const char *object_names[] = { "on_screen", "monitor", "controll", "obj0", "obj1", "obj2", "obj3", "obj4", "obj5", "obj6", "obj7", "londing" };
+static const char *object_names[] = { "on_screen", "monitor", "controll", "obj0", "obj1", "obj2", "obj3", "obj4", "obj5", "obj6", "obj7" };
 static const char *style_names[] = { "active_tab", "inactive_tab", "tab_panel" };
 
 

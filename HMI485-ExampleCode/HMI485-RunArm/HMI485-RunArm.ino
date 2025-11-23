@@ -1,3 +1,4 @@
+
 #include <Arduino.h>
 #include <esp_display_panel.hpp>
 #include <lvgl.h>
@@ -15,9 +16,18 @@ using namespace esp_panel::board;
 #define DO0 8
 #define DO1 9
 esp_expander::CH422G *expander = NULL;
+#define RS485_RX_PIN 43
+#define RS485_TX_PIN 44
+#include <Mirobot.h>  //include header file
+//Create the robotic arm object
+RS485_Mirobot arm1;
+
 void setup() {
-  Serial.begin(38400);
+  Serial.begin(115200);
   Serial.println("Initializing board");
+  
+  arm1.rs485Init(1,115200,RS485_RX_PIN,RS485_TX_PIN);   //Initial setting, default address 01
+  arm1.setSerialMonitoring(1);  //Monitor setting, default 1:Open, 0:Off
 
   Board *board = new Board();
   board->init();
@@ -61,10 +71,14 @@ void loop() {
     Serial.println("RUN Home.....");
     set_var_st_home(0);
     set_var_st_start(0);
+    arm1.sendMsg("$H",OFF);
+
   }
-   if(var_st_start==1){
+  if(var_st_start==1){
     Serial.println("RUN Start.....");
     set_var_st_home(0);
     set_var_st_start(0);
+    arm1.runFile("test_p1"); //Run the "test.gcode" file stored in the controller
+  
   }
 }
