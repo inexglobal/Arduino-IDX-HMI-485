@@ -325,7 +325,7 @@ void create_screen_controll() {
             lv_obj_set_pos(obj, 462, 262);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_obj_set_style_text_font(obj, &lv_font_montserrat_22, LV_PART_MAIN | LV_STATE_DEFAULT);
-            lv_label_set_text(obj, "test_p1.gcode");
+            lv_label_set_text(obj, "file.gcode");
         }
     }
     

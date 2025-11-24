@@ -1400,7 +1400,7 @@
               "type": "LVGLLabelWidget",
               "left": 462,
               "top": 262,
-              "width": 150,
+              "width": 109,
               "height": 24,
               "customInputs": [],
               "customOutputs": [],
@@ -1439,7 +1439,7 @@
               },
               "group": "",
               "groupIndex": 0,
-              "text": "test_p1.gcode",
+              "text": "file.gcode",
               "textType": "literal",
               "longMode": "WRAP",
               "recolor": false
@@ -1563,32 +1563,6 @@
               "value": "0"
             }
           ]
-        },
-        {
-          "objID": "72bee1e6-155a-4102-89b4-d8e770874140",
-          "type": "LVGLActionComponent",
-          "left": 734,
-          "top": 425,
-          "width": 286,
-          "height": 53,
-          "customInputs": [],
-          "customOutputs": [],
-          "actions": [
-            {
-              "objID": "567974b4-837b-4d4c-8257-77ad0605d057",
-              "action": "changeScreen",
-              "screen": "Monitor",
-              "screenType": "literal",
-              "fadeMode": "NONE",
-              "fadeModeType": "literal",
-              "speed": 200,
-              "speedType": "literal",
-              "delay": 0,
-              "delayType": "literal",
-              "useStack": true,
-              "useStackType": "literal"
-            }
-          ]
         }
       ],
       "connectionLines": [
@@ -1632,13 +1606,6 @@
           "source": "fe8a5089-4cd3-4e56-df37-c7f63d90f465",
           "output": "RELEASED",
           "target": "480f7c42-5283-438c-9bb9-3031647cf090",
-          "input": "@seqin"
-        },
-        {
-          "objID": "7cc5a999-7ae6-400f-c89a-e82b92cb37bb",
-          "source": "480f7c42-5283-438c-9bb9-3031647cf090",
-          "output": "@seqout",
-          "target": "72bee1e6-155a-4102-89b4-d8e770874140",
           "input": "@seqin"
         }
       ],

@@ -52,19 +52,15 @@ void setup() {
   expander->enableOC_PushPull();
   //Set the IO0-7 pin to input mode
   expander->enableAllIO_Input();
-
-  
 }
 // Buffer สำหรับเก็บข้อความจาก Serial
 String serialBuffer = "";
 unsigned long t = 0;
 void loop() {
-
   if (millis() - t >= 100) {  // เวลาครบรอบหน่วยเป็น มิลลิวินาที
     t = millis();
     ui_tick();  //update UI
   }
-
   bool var_st_home = get_var_st_home();
   bool var_st_start = get_var_st_start();
   if(var_st_home==1){
@@ -72,13 +68,12 @@ void loop() {
     set_var_st_home(0);
     set_var_st_start(0);
     arm1.sendMsg("$H",OFF);
-
   }
   if(var_st_start==1){
     Serial.println("RUN Start.....");
     set_var_st_home(0);
     set_var_st_start(0);
-    arm1.runFile("test_p1"); //Run the "test.gcode" file stored in the controller
-  
+    //Run the "qnd15102025.gcode" file stored in the controller
+    arm1.sendMsg("o111qnd15102025",OFF);
   }
 }

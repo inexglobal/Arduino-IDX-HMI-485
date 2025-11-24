@@ -3,7 +3,7 @@
     "selectedUserPageObject": "[Ex02.eez-project]:/userPages/2",
     "selectedGlobalVariableObject": "[Ex02.eez-project]:/variables/globalVariables/6",
     "subnavigationSelectedItems": {
-      "variables-tab/sub-navigation/selected-item": "Global"
+      "variables-tab/sub-navigation/selected-item": "Widgets"
     }
   },
   "layoutModel": {
@@ -162,7 +162,7 @@
                 {
                   "type": "tabset",
                   "id": "#c8951a1a-5724-499f-8bc8-2eeffd878990",
-                  "weight": 1,
+                  "weight": 0.4087193460490463,
                   "enableClose": false,
                   "children": [
                     {
@@ -178,7 +178,7 @@
                 {
                   "type": "tabset",
                   "id": "#5520856a-00f2-4031-bf01-36cbb8f00359",
-                  "weight": 1,
+                  "weight": 1.5912806539509536,
                   "enableClose": false,
                   "children": [
                     {
@@ -1273,10 +1273,10 @@
       },
       "transform": {
         "translate": {
-          "x": -432.3979712311585,
-          "y": -159.19314426521385
+          "x": -390.64810315311433,
+          "y": -276.59281974894066
         },
-        "scale": 0.5
+        "scale": 0.67
       },
       "timeline": {
         "isEditorActive": false,
@@ -1306,6 +1306,6 @@
   ],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
-  "flowZoom": 0.5,
+  "flowZoom": 0.67,
   "implementationLanguage": "C"
 }

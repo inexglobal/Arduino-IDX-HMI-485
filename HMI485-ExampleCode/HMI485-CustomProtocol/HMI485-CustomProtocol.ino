@@ -17,7 +17,7 @@ void setup() {
 }
 void loop() {
   if (RS485.available()) {
-    strMsg = RS485.readString();
+    strMsg = RS485.readStringUntil('\r\n');
     RS485.flush();
     ParsedMessage p1 = parser.parse(strMsg);
     Serial.print("Message : ");
