@@ -70,7 +70,7 @@ protected:
 class RS485_Mirobot : public UART_Mirobot
 {
 public:
-  void rs485Init(int add = 1, long baudRate = 38400, int RX_PIN = 4, int TX_PIN = 5);
+  void rs485Init(int add = 1, long baudRate = 115200, int RX_PIN = 4, int TX_PIN = 5);
 };
 
 #endif
