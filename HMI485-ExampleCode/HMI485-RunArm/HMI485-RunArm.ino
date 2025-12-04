@@ -26,7 +26,7 @@ void setup() {
   Serial.begin(115200);
   Serial.println("Initializing board");
   
-  arm1.rs485Init(1,115200,RS485_RX_PIN,RS485_TX_PIN);   //Initial setting, default address 01
+  arm1.rs485Init(01,115200,RS485_RX_PIN,RS485_TX_PIN);   //Initial setting, default address 01
   arm1.setSerialMonitoring(1);  //Monitor setting, default 1:Open, 0:Off
 
   Board *board = new Board();
@@ -74,6 +74,6 @@ void loop() {
     set_var_st_home(0);
     set_var_st_start(0);
     //Run the "qnd15102025.gcode" file stored in the controller
-    arm1.sendMsg("o111qnd15102025",OFF);
+    arm1.sendMsg("o111=qnd15102025",OFF);
   }
 }

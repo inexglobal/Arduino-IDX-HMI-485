@@ -12,11 +12,13 @@ void setup() {
   while (!RS485) {
     delay(10);  // Wait for initialization to succeed
   }
+  RS485.print("TestRS485");
+  RS485.flush();
 }
 void loop() {
   if (RS485.available()) {
-    strMsg = RS485.readString();
-    RS485.flush();
+    strMsg = RS485.readStringUntil('\r\n');
     RS485.print(strMsg);
+    RS485.flush();
   }
 }
