@@ -23,7 +23,7 @@ void loop() {
     arm1.sendMsg("$H", OFF);
     delay(250);
   }
-  if (digitalRead(pin_button_1) == 0) {
+  if (digitalRead(pin_button_2) == 0) {
     arm1.sendMsg("o111=vec2501", OFF);
     delay(250);
   }
