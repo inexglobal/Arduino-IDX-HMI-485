@@ -1,7 +1,7 @@
 /*
     arm1.sendMsg("$H", OFF); // Homing
-    arm1.sendMsg("~", OFF);  // Feed Hold
-    arm1.sendMsg("!", OFF);  // Resume
+    arm1.sendMsg("~", OFF);  // Resume 
+    arm1.sendMsg("!", OFF);  // Feed Hold
     arm1.sendMsg("o111=vec2501", OFF); // run file "vec2501.gcode"
   */
 #include <Mirobot.h>  //include header file
@@ -24,7 +24,7 @@ void loop() {
     delay(250);
   }
   if (digitalRead(pin_button_2) == 0) {
-    arm1.sendMsg("o111=vec2501", OFF);
+    arm1.sendMsg("o111=VEC2501", OFF);
     delay(250);
   }
 }
